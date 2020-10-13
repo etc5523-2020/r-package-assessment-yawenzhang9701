@@ -3,3 +3,4 @@
 ^.*\.Rproj$
 ^yourPkg\.Rproj$
 ^README\.Rmd$
+^LICENSE\.md$
