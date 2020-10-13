@@ -2,3 +2,4 @@
 ^\.github$
 ^.*\.Rproj$
 ^yourPkg\.Rproj$
+^README\.Rmd$
