@@ -7,9 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "yzha0275@student.monash.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Provides a daily summary of the Coronavirus (COVID-19) cases in the World by country, 
-region and province level. Data source: the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU) 
-<https://github.com/CSSEGISandData/COVID-19>. 
+Description: Provides a daily summary of the Coronavirus (COVID-19) cases in the World by country, region and province level. Data source: the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU) <https://github.com/CSSEGISandData/COVID-19>. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
