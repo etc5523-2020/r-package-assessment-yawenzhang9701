@@ -1,13 +1,15 @@
 Package: COVIDworld
-Title: What the Package Does (One Line, Title Case)
+Title: Shiny Package of COVID-19 World Situation
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Yawen",
+           family = "Zhang",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "yzha0275@student.monash.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: Provides a daily summary of the Coronavirus (COVID-19) cases in the World by country, 
+region and province level. Data source: the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU) 
+<https://github.com/CSSEGISandData/COVID-19>. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
