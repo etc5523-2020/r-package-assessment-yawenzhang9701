@@ -4,3 +4,4 @@
 ^yourPkg\.Rproj$
 ^README\.Rmd$
 ^LICENSE\.md$
+^data-raw$
