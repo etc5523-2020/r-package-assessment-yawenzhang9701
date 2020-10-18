@@ -1,0 +1,20 @@
+---
+title: "COVID-19 Shiny Dashboard in the World"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{COVID-19 Shiny Dashboard in the World}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(COVIDworld)
+```
+
