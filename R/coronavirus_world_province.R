@@ -28,17 +28,16 @@
 #' (confirmed, death, and recovered), by state/province.
 #'
 #' @examples
-#' data(coronavirus)
 #'
 #' require(dplyr)
 #'
 #' # Get the number of recovered cases in Canada by province
-#' coronavirus %>%
+#' coronavirus_world_province %>%
 #'   filter(type == "recovered", country == "Canada") %>%
 #'   group_by(province) %>%
 #'   summarise(total = sum(cases)) %>%
 #'   arrange(-total)
-"coronavirus_world_province"
+"df"
 
 #' The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Daily and Cumulative Cases.
 #'
@@ -67,7 +66,7 @@
 #' (confirmed, death, and recovered), in global.
 #'
 #'
-"daily"
+"df_daily"
 
 #' The 2019 Novel Coronavirus COVID-19 (2019-nCoV) in 2020-10-07.
 #'
@@ -97,7 +96,7 @@
 #' @details The dataset contains the most recent summary Coronavirus cases
 #' (confirmed, death, and recovered), by state/province when making this shiny app.
 #'
-"recent"
+"df_recent"
 
 #' The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset for each country
 #'
@@ -115,4 +114,4 @@
 #' (JHU CCSE) Coronavirus \href{https://systems.jhu.edu/research/public-health/ncov/}{website}.
 #'
 #'
-"total_type"
+"df_tree"

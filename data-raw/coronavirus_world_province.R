@@ -3,7 +3,7 @@
 library(shiny)
 library(dplyr)
 library(tidyverse)
-library(ggplot2)
+#library(ggplot2)
 library(plotly)
 library(kableExtra)
 library(leaflet)
@@ -11,7 +11,7 @@ library(DT)
 library(scales)
 library(shinydashboard)
 
-coronavirus_world_province <- read.csv("data/coronavirus_new.csv", stringsAsFactors = FALSE) %>%
+df <- read.csv("data-raw/coronavirus_new.csv", stringsAsFactors = FALSE) %>%
   mutate(country = ifelse(country == "United Arab Emirates", "UAE", country),
          country = ifelse(country == "Mainland China", "China", country),
          country = ifelse(country == "North Macedonia", "N.Macedonia", country),
@@ -19,7 +19,9 @@ coronavirus_world_province <- read.csv("data/coronavirus_new.csv", stringsAsFact
          country = factor(country, levels = unique(country))) %>%
   mutate(date = as.Date(date))
 
-daily <- coronavirus_world_province %>%
+
+
+df_daily <- df %>%
   group_by(date, type) %>%
   mutate(as.Date(date)) %>%
   summarise(total = sum(cases, na.rm = TRUE),
@@ -34,7 +36,8 @@ daily <- coronavirus_world_province %>%
          recovered_cum = cumsum(recovered),
          active_cum = cumsum(active))
 
-total_type <- coronavirus_world_province %>%
+
+df_tree <- df %>%
   group_by(country, type) %>%
   summarise(total = sum(cases), .groups = "drop") %>%
   mutate(type = ifelse(type == "confirmed", "Confirmed", type),
@@ -44,8 +47,11 @@ total_type <- coronavirus_world_province %>%
   mutate(Active = Confirmed - Death - Recovered) %>%
   pivot_longer(cols = -country, names_to = "type", values_to = "total")
 
-recent <- coronavirus_world_province %>%
+
+
+df_recent <- df %>%
   filter(date == "2020-10-07") %>%
   pivot_wider(id_cols = c("date", "country", "lat", "long", "province"), names_from = type, values_from = cases)
+
 
 usethis::use_data(recent, overwrite = TRUE)
