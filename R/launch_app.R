@@ -2,7 +2,9 @@
 #'
 #' @description Load the shiny application of COVID-19
 #'
+#' @import shiny
+#'
 #' @export
 launch_app <- function(){
-  runApp('inst/app')
+  shiny::runApp('inst/app')
 }

@@ -32,7 +32,7 @@
 #' require(dplyr)
 #'
 #' # Get the number of recovered cases in Canada by province
-#' coronavirus_world_province %>%
+#' df %>%
 #'   filter(type == "recovered", country == "Canada") %>%
 #'   group_by(province) %>%
 #'   summarise(total = sum(cases)) %>%
