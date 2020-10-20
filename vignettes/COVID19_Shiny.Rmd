@@ -18,3 +18,6 @@ knitr::opts_chunk$set(
 library(COVIDworld)
 ```
 
+# Shiny App for COVID-19 Dashboard across the World
+
+This Github repository provides the code and input data for Shiny web application which aim to help users to get a deeper understanding of this pandemic. The latest open data on the COVID-19 spread are regularly downloaded and displayed in a map, summary tables and plots.
