@@ -9,6 +9,8 @@
 status](https://github.com/etc5523-2020/r-package-assessment-yawenzhang9701/workflows/R-CMD-check/badge.svg)](https://github.com/etc5523-2020/r-package-assessment-yawenzhang9701/actions)
 [![License:
 GPL](https://img.shields.io/badge/License-GPL-3.svg)](http://www.gnu.org/licenses/gpl-3.0.en.html)
+[![GitHub
+commit](https://img.shields.io/github/last-commit/etc5523-2020/r-package-assessment-yawenzhang9701)](https://github.com/etc5523-2020/r-package-assessment-yawenzhang9701/commit/master)
 
 <!-- badges: end -->
 
@@ -85,7 +87,6 @@ head(df)
 ``` r
 library(dplyr)
 library(ggplot2)
-library(plotly)
 df %>%
   filter(type == "confirmed", country == "Canada") %>%
   ggplot(aes(x = date, y = cases)) +

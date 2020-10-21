@@ -6,7 +6,6 @@
 #' @param y The name of a tab that this menu item will activate
 #' @param z The available icons
 #'
-#' @import shinydashboard
 #'
 #' @examples
 #' \dontrun{

@@ -6,6 +6,11 @@
 \usage{
 summariseData(df, groupBy)
 }
+\arguments{
+\item{df}{the data called 'df'}
+
+\item{groupBy}{group by each columns}
+}
 \description{
 summarize data and transfer it into dataframe.
 }

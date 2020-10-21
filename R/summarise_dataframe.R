@@ -2,6 +2,9 @@
 #'
 #' @description summarize data and transfer it into dataframe.
 #'
+#' @param df the data called 'df'
+#' @param groupBy group by each columns
+#'
 #'
 #' @export
 summariseData <- function(df, groupBy) {

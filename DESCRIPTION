@@ -15,10 +15,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
     R (>= 2.10),
-    shiny,
-    rlang
+    shiny
 Imports: 
-    dplyr
+    dplyr,
+    rlang,
+    shinydashboard
 Suggests: 
     knitr,
     rmarkdown,
