@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) in 2020-10-07. — df_recent • COVIDworld</title>
+<title>Summarize Data Frame — group_dataframe • COVIDworld</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="The 2019 Novel Coronavirus COVID-19 (2019-nCoV) in 2020-10-07. — df_recent" />
-<meta property="og:description" content="Daily summary of the Coronavirus (COVID-19) cases by state/province in 2020-10-07." />
+<meta property="og:title" content="Summarize Data Frame — group_dataframe" />
+<meta property="og:description" content="summarize data and transfer it into dataframe." />
 
 
 
@@ -123,43 +123,30 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) in 2020-10-07.</h1>
+    <h1>Summarize Data Frame</h1>
     
-    <div class="hidden name"><code>df_recent.Rd</code></div>
+    <div class="hidden name"><code>group_dataframe.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Daily summary of the Coronavirus (COVID-19) cases by state/province in 2020-10-07.</p>
+    <p>summarize data and transfer it into dataframe.</p>
     </div>
 
-    <pre class="usage"><span class='va'>df_recent</span></pre>
+    <pre class="usage"><span class='fu'>group_dataframe</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>groupBy</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>df</th>
+      <td><p>the data called 'df'</p></td>
+    </tr>
+    <tr>
+      <th>groupBy</th>
+      <td><p>group by each columns</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A data frame with 8 variables.</p><dl>
-<dt>date</dt><dd><p>The Most Recent Date in YYYY-MM-DD format in 2020-10-07.</p></dd>
-<dt>country</dt><dd><p>Name of country/region.</p></dd>
-<dt>lat</dt><dd><p>Latitude of center of geographic region, defined as either
-country or, if available, province.</p></dd>
-<dt>long</dt><dd><p>Longitude of center of geographic region, defined as either
-country or, if available, province.</p></dd>
-<dt>province</dt><dd><p>Name of province/state, for countries where data is
-provided split across multiple provinces/states.</p></dd>
-<dt>confirmed</dt><dd><p>Confirmed Cases in 2020-10-07.</p></dd>
-<dt>death</dt><dd><p>Mortality Cases in 2020-10-07.</p></dd>
-<dt>recovered</dt><dd><p>Recovered Cases in 2020-10-07.</p></dd>
-
-</dl>
-
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p>Johns Hopkins University Center for Systems Science and Engineering
-(JHU CCSE) Coronavirus <a href='https://systems.jhu.edu/research/public-health/ncov/'>website</a>.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>The dataset contains the most recent summary Coronavirus cases
-(confirmed, death, and recovered), by state/province when making this shiny app.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
