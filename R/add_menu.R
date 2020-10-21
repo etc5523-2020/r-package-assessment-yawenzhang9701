@@ -9,7 +9,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' add_menu("Map", tabName = "Map", icon = icon("map-marked-alt")
+#' add_menu("Map", "Map", "map-marked-alt")
 #' }
 #'
 #' @source You can see lists of all available icons here:

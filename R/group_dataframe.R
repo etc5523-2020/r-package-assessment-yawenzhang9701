@@ -7,7 +7,7 @@
 #'
 #'
 #' @export
-summariseData <- function(df, groupBy) {
+group_dataframe <- function(df, groupBy) {
   df %>%
     group_by(!!sym(groupBy)) %>%
     summarise(

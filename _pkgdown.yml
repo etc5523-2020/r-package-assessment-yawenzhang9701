@@ -1,3 +1,35 @@
 template:
   params:
-    bootswatch: cerulean
+    bootswatch: flatly
+
+navbar:
+  structure:
+    right: [github,blog]
+    left: [help]
+  components:
+    home: ~
+    help:
+      text: Get started
+      href: articles/COVID19_Shiny.html
+    blog:
+      icon: fa-blog fa-lg
+      href: https://etc5523-yawen-zhang-blog.netlify.app/
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/etc5523-2020/r-package-assessment-yawenzhang9701
+
+reference:
+- title: "2019 Novel Coronavirus COVID-19 (2019-nCoV) Epidemic Data"
+  contents:
+  - df
+  - df_daily
+  - df_recent
+  - df_tree
+- title: "Loading Shiny Dashboard"
+  contents:
+  - launch_app
+- title: "Functions Generated From the Shiny Application"
+  contents:
+  - add_menu
+  - slider_date
+  - group_data

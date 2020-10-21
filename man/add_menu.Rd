@@ -22,7 +22,7 @@ Add menu for shiny dashboard
 }
 \examples{
 \dontrun{
-add_menu("Map", tabName = "Map", icon = icon("map-marked-alt")
+add_menu("Map", "Map", "map-marked-alt")
 }
 
 }

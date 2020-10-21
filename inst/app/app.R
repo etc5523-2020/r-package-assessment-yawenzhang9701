@@ -437,7 +437,7 @@ server <- function(input, output) {
 
     observeEvent(input$timeSlider, {
       data <- data_atDate(input$timeSlider)
-      replaceData(proxy_summaryDT_country, summariseData(data, "country"), rownames = FALSE)
+      replaceData(proxy_summaryDT_country, group_dataframe(data, "country"), rownames = FALSE)
     }, ignoreInit = TRUE, ignoreNULL = TRUE)
 
 
@@ -454,7 +454,7 @@ server <- function(input, output) {
 
     getSummaryDT <- function(data, groupBy, selectable = FALSE) {
       datatable(
-        na.omit(summariseData(data, groupBy)),
+        na.omit(group_dataframe(data, groupBy)),
         rownames  = FALSE,
         options   = list(
           order          = list(1, "desc"),
