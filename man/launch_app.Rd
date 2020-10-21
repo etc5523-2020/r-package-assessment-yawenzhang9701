@@ -9,3 +9,9 @@ launch_app()
 \description{
 Load the shiny application of COVID-19
 }
+\examples{
+\dontrun{
+launch_app()
+}
+
+}

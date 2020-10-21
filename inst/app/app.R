@@ -8,11 +8,12 @@ library(leaflet)
 library(DT)
 library(scales)
 library(shinydashboard)
+library(COVIDworld)
 
-load(here::here('data/df.rda'))
-load(here::here('data/df_daily.rda'))
-load(here::here('data/df_tree.rda'))
-load(here::here('data/df_recent.rda'))
+# load(here::here('data/df.rda'))
+# load(here::here('data/df_daily.rda'))
+# load(here::here('data/df_tree.rda'))
+# load(here::here('data/df_recent.rda'))
 
 
 # df <- read.csv("data/coronavirus_new.csv", stringsAsFactors = FALSE) %>%
@@ -69,7 +70,8 @@ data_atDate <- function(inputDate) {
 ui <- dashboardPage(
   dashboardHeader(title = "The COVID-19 Global Situation"),
   dashboardSidebar(sidebarMenu(
-    menuItem("Map", tabName = "Map", icon = icon("map-marked-alt")),
+    add_menu("Map", "Map", "map-marked-alt"),
+    # menuItem("Map", tabName = "Map", icon = icon("map-marked-alt")),
     menuItem("Graphs", tabName = "Graphs", icon = icon("chart-bar")),
     menuItem("About", tabName = "About",icon = icon("info-circle") )
     )
@@ -134,10 +136,14 @@ ui <- dashboardPage(
                                                "recovered"),
                                    selected = c("confirmed")), width = 3),
               column(
-                sliderInput("dateInput", "Date:",
-                            min = as.Date("2020-01-22", "%Y-%m-%d"),
-                            max = as.Date("2020-10-07", "%Y-%m-%d"),
-                            value = c(as.Date("2020-01-22"), as.Date("2020-10-07"))),width = 6),
+                # sliderInput("dateInput", "Date:",
+                #             # min = as.Date("2020-01-22", "%Y-%m-%d"),
+                #             min = min(df$date),
+                #             # max = as.Date("2020-10-07", "%Y-%m-%d"),
+                #             max = max(df$date),
+                #             value = c(min(df$date), max(df$date))),
+                slider_date("dateInput", "Date:", df$date),
+                width = 6),
               column(
                 h4(strong("Brief Explanation"), style = 'font-size:20px'),
                 "The bar chart shows the global evaluation of new confirmed, recovered and deaths cases from 2020-01-22 to 2020-10-07.",
@@ -268,22 +274,23 @@ server <- function(input, output) {
         rename("Type" = type)
     })
 
+    # d <- plot_country(country=input$countryInput, type = input$typeInput, date1 = input$dateInput[1],
+    #              date2 = input$dateInput[2], date = date)
+
     output$countryplot <- renderPlotly({
-
-      # plot_ly(data = df, x = ~date, y = ~cases, color = ~type, type = 'bar') %>%
-      #   layout(
-      #     yaxis = list(title = "# New Cases"),
-      #     xaxis = list(title = "Date"))
-
+      plot_ly(data = df, x = ~date, y = ~cases, color = ~type, type = 'bar') %>%
+        layout(
+          yaxis = list(title = "# New Cases"),
+          xaxis = list(title = "Date"))
       ggplot(d(), aes(x=Date, y = Amount, fill = Type)) +
         geom_col() +
         theme_bw() +
         xlab("date") +
         ylab("new cases") +
         ggtitle("Cases over time")
-        # layout(legend = orientation = "h", y = -0.3) +
-        # config(displayModeBar = F)
-    })
+      # layout(legend = orientation = "h", y = -0.3) +
+      # config(displayModeBar = F)
+      })
 
     output$case_evolution <- renderPlotly({
       d2 <- df_daily %>%
@@ -368,7 +375,7 @@ server <- function(input, output) {
         addCircleMarkers(
           lng          = ~long,
           lat          = ~lat,
-          radius       = ~log(confirmed^(zoomLevel / 1)),
+          radius       = ~log(confirmed^(zoomLevel)),
           stroke       = FALSE,
           color        = "#E7590B",
           fillOpacity  = 0.5,
@@ -387,28 +394,29 @@ server <- function(input, output) {
           labelOptions = labelOptions(textsize = 15),
           group = "recovered"
         ) %>%
+        # add_circle(recovered, "#005900", "recovered") %>%
         addCircleMarkers(
           lng          = ~long,
           lat          = ~lat,
           radius       = ~log(death^(zoomLevel)),
           stroke       = FALSE,
-          # color        = "#E7590B",
-          fillOpacity  = 0.5,
-          label        = ~label,
-          labelOptions = labelOptions(textsize = 15),
-          group        = "death"
-        ) %>%
-        addCircleMarkers(
-          lng          = ~long,
-          lat          = ~lat,
-          radius       = ~log(death^(zoomLevel / 2)),
-          stroke       = FALSE,
-          color        = "#f49e19",
+          color        = "#E7590B",
           fillOpacity  = 0.5,
           label        = ~label,
           labelOptions = labelOptions(textsize = 15),
           group        = "death"
         )
+        # addCircleMarkers(
+        #   lng          = ~long,
+        #   lat          = ~lat,
+        #   radius       = ~log(death^(zoomLevel / 2)),
+        #   stroke       = FALSE,
+        #   color        = "#f49e19",
+        #   fillOpacity  = 0.5,
+        #   label        = ~label,
+        #   labelOptions = labelOptions(textsize = 15),
+        #   group        = "death"
+        # )
     })
 
     output$overview_map <- renderLeaflet(map)
@@ -433,16 +441,16 @@ server <- function(input, output) {
     }, ignoreInit = TRUE, ignoreNULL = TRUE)
 
 
-    summariseData <- function(df, groupBy) {
-      df %>%
-        group_by(!!sym(groupBy)) %>%
-        summarise(
-          "confirmed" = sum(confirmed, na.rm = T),
-          "recovered" = sum(recovered, na.rm = T),
-          "death" = sum(death, na.rm = T)
-        ) %>%
-        as.data.frame()
-    }
+    # summariseData <- function(df, groupBy) {
+    #   df %>%
+    #     group_by(!!sym(groupBy)) %>%
+    #     summarise(
+    #       "confirmed" = sum(confirmed, na.rm = T),
+    #       "recovered" = sum(recovered, na.rm = T),
+    #       "death" = sum(death, na.rm = T)
+    #     ) %>%
+    #     as.data.frame()
+    # }
 
     getSummaryDT <- function(data, groupBy, selectable = FALSE) {
       datatable(
@@ -456,11 +464,13 @@ server <- function(input, output) {
           dom            = 'ft',
           paging         = FALSE
         ),
-        selection = ifelse(selectable, "single", "none")
-      ) %>%
+        selection = ifelse(selectable, "single", "none")) %>%
         formatCurrency("confirmed", currency = "", interval = 3, mark = ",", digits = 0) %>%
         formatCurrency("recovered", currency = "", interval = 3, mark = ",", digits = 0) %>%
         formatCurrency("death", currency = "", interval = 3, mark = ",", digits = 0)
+        # DTcomma("confirmed") %>%
+        # DTcomma("recovered") %>%
+        # DTcomma("death")
     }
 
 
