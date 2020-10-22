@@ -84,7 +84,9 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>COVID-19 Shiny Dashboard in the World</h1>
+                        <h4 class="author">Yawen Zhang</h4>
             
+            <h4 class="date">2020-10-22</h4>
       
       
       <div class="hidden name"><code>COVID19_Shiny.Rmd</code></div>
@@ -102,16 +104,11 @@
 <span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"etc5523-2020/r-package-assessment-yawenzhang9701"</span><span class="op">)</span></pre></div>
 <p>After that, library <code>{COVIDworld}</code> in you working directory.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">COVIDworld</span><span class="op">)</span>
-<span class="co">#&gt; Loading required package: shiny</span></pre></div>
 </div>
 <div id="launching-shiny-dashboard" class="section level2">
 <h2 class="hasAnchor">
 <a href="#launching-shiny-dashboard" class="anchor"></a>Launching Shiny Dashboard</h2>
 <p>The applicaiton can be launched by using the following line of code:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="../reference/launch_app.html">launch_app</a></span><span class="op">(</span><span class="op">)</span></pre></div>
 </div>
 <div id="data-sources" class="section level2">
 <h2 class="hasAnchor">
@@ -133,7 +130,7 @@
 <h3 class="hasAnchor">
 <a href="#map-and-table" class="anchor"></a>Map and Table</h3>
 <div class="figure">
-<img src="map.png" alt="COVID-19 Dashboard — Overview Map Section" width="100%"><p class="caption">
+<img src="graph/map.png" alt="COVID-19 Dashboard — Overview Map Section" width="100%" height="80%"><p class="caption">
 COVID-19 Dashboard — Overview Map Section
 </p>
 </div>
@@ -142,11 +139,13 @@ COVID-19 Dashboard — Overview Map Section
 <div id="graph" class="section level3">
 <h3 class="hasAnchor">
 <a href="#graph" class="anchor"></a>Graph</h3>
+<center>
 <div class="figure">
-<img src="graphs.png" alt="COVID-19 Dashboard — Overview Graph Section" width="100%"><p class="caption">
+<img src="graph/graphs.png" alt="COVID-19 Dashboard — Overview Graph Section" width="100%" height="80%"><p class="caption">
 COVID-19 Dashboard — Overview Graph Section
 </p>
 </div>
+</center>
 <p>This graph section contains plots visualizing several interesting aspects of the COVID-19 pandemic progression.</p>
 <p>The left graphs shows different countries with different type of variables such as confirmed, deaths, recovered. The second graph on the right shows the global evolution of cases from 2020-01-22 to 2020-10-07.</p>
 </div>
