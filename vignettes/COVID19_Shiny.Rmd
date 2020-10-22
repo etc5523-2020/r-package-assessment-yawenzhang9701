@@ -1,6 +1,11 @@
 ---
 title: "COVID-19 Shiny Dashboard in the World"
+package: COVIDworld
+author: "Yawen Zhang"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+resouce_files:
+  - graph/
 vignette: >
   %\VignetteIndexEntry{COVID-19 Shiny Dashboard in the World}
   %\VignetteEngine{knitr::rmarkdown}
@@ -10,7 +15,14 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "images/",
+  out.width = "100%",
+  out.height = "80%"
 )
 ```
 
@@ -58,18 +70,20 @@ This shiny web application aims to help users to get a deeper understanding of t
 
 ### Map and Table
   
-```{r map1, echo=FALSE, out.width = '100%', fig.cap="COVID-19 Dashboard — Overview Map Section"}
-knitr::include_graphics("map.png")
+```{r map1, fig.cap="COVID-19 Dashboard — Overview Map Section"}
+knitr::include_graphics("graph/map.png")
 ```
   
 This map section of the dashboard shows the world map and a list of countries with their respective number of confirmed, recovered and death cases. A time-lapse feature with a simple slider is included to get an idea on about the development of the pandemic. Users could also choose the different types of data in the map by clicking the checkbox, which contains confirmed, recovered and deaths.
 
 ### Graph
-  
-```{r graph, echo=FALSE, out.width = '100%', fig.cap="COVID-19 Dashboard — Overview Graph Section"}
-knitr::include_graphics("graphs.png")
+
+<center>  
+```{r graph, fig.cap="COVID-19 Dashboard — Overview Graph Section"}
+knitr::include_graphics("graph/graphs.png")
 ``` 
-  
+</center>
+
 This graph section contains plots visualizing several interesting aspects of the COVID-19 pandemic progression.
   
 The left graphs shows different countries with different type of variables such as confirmed, deaths, recovered. The second graph on the right shows the global evolution of cases from 2020-01-22 to 2020-10-07. 

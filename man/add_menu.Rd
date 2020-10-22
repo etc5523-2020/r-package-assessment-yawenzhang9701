@@ -2,27 +2,25 @@
 % Please edit documentation in R/add_menu.R
 \name{add_menu}
 \alias{add_menu}
-\title{Add Menu}
+\title{Dashboard Menu}
 \source{
 You can see lists of all available icons here:
 \url{https://fontawesome.com/icons?from=io}
 }
 \usage{
-add_menu(x, y, z)
+add_menu(id, text_name, icon_name)
 }
 \arguments{
-\item{x}{Sidebar menu which be used for a Shiny input value}
+\item{id}{Sidebar menu which be used for a Shiny input value}
 
-\item{y}{The name of a tab that this menu item will activate}
+\item{text_name}{The name of a tab that this menu item will activate}
 
-\item{z}{The available icons}
+\item{icon_name}{The available icons}
 }
 \description{
 Add menu for shiny dashboard
 }
 \examples{
-\dontrun{
 add_menu("Map", "Map", "map-marked-alt")
-}
 
 }

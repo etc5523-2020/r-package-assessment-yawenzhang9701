@@ -10,53 +10,6 @@ library(scales)
 library(shinydashboard)
 library(COVIDworld)
 
-# load(here::here('data/df.rda'))
-# load(here::here('data/df_daily.rda'))
-# load(here::here('data/df_tree.rda'))
-# load(here::here('data/df_recent.rda'))
-
-
-# df <- read.csv("data/coronavirus_new.csv", stringsAsFactors = FALSE) %>%
-#   mutate(country = ifelse(country == "United Arab Emirates", "UAE", country),
-#                 country = ifelse(country == "Mainland China", "China", country),
-#                 country = ifelse(country == "North Macedonia", "N.Macedonia", country),
-#                 country = trimws(country),
-#                 country = factor(country, levels = unique(country))) %>%
-#   mutate(date = as.Date(date))
-# df_daily <- df %>%
-#   group_by(date, type) %>%
-#   mutate(as.Date(date)) %>%
-#   summarise(total = sum(cases, na.rm = TRUE),
-#                    .groups = "drop") %>%
-#   pivot_wider(names_from = type,
-#                      values_from = total) %>%
-#   arrange(date) %>%
-#   ungroup() %>%
-#   mutate(active =  confirmed - death - recovered) %>%
-#   mutate(confirmed_cum = cumsum(confirmed),
-#                 death_cum = cumsum(death),
-#                 recovered_cum = cumsum(recovered),
-#                 active_cum = cumsum(active))
-# df_tree <- df %>%
-#   group_by(country, type) %>%
-#   summarise(total = sum(cases), .groups = "drop") %>%
-#   mutate(type = ifelse(type == "confirmed", "Confirmed", type),
-#                 type = ifelse(type == "recovered", "Recovered", type),
-#                 type = ifelse(type == "death", "Death", type)) %>%
-#   pivot_wider(names_from = type, values_from = total) %>%
-#   mutate(Active = Confirmed - Death - Recovered) %>%
-#   pivot_longer(cols = -country, names_to = "type", values_to = "total")
-# # df_world <- df_tree %>%
-# #   group_by(type) %>%
-# #   summarise(total = sum(total), .groups = "drop") %>%
-# #   pivot_wider(names_from = type, values_from = total)
-# # names(df_world) <- tolower(names(df_world))
-#
-# df_recent <- df %>%
-#   filter(date == "2020-10-07") %>%
-#   # filter(type == "recovered") %>%
-#   # select(-province) %>%
-#   pivot_wider(id_cols = c("date", "country", "lat", "long", "province"), names_from = type, values_from = cases)
 
 data_atDate <- function(inputDate) {
   df[which(df$date == inputDate),] %>%
@@ -72,8 +25,10 @@ ui <- dashboardPage(
   dashboardSidebar(sidebarMenu(
     add_menu("Map", "Map", "map-marked-alt"),
     # menuItem("Map", tabName = "Map", icon = icon("map-marked-alt")),
-    menuItem("Graphs", tabName = "Graphs", icon = icon("chart-bar")),
-    menuItem("About", tabName = "About",icon = icon("info-circle") )
+    add_menu("Graphs", "Graphs", "chart-bar"),
+    # menuItem("Graphs", tabName = "Graphs", icon = icon("chart-bar")),
+    add_menu("About", "About", "info-circle")
+    # menuItem("About", tabName = "About",icon = icon("info-circle") )
     )
   ),
   dashboardBody(
@@ -263,15 +218,16 @@ ui <- dashboardPage(
 
 server <- function(input, output) {
     d <- reactive({
-      df %>%
-        filter(country == input$countryInput,
-               type %in% input$typeInput,
-               date >= input$dateInput[1],
-               date <= input$dateInput[2]) %>%
-        mutate(Date = as.Date(date)) %>%
-        rename("Amount" = cases) %>%
-        # mutate(Amount = comma(Amount, big.mark = ",", digits = 0)) %>%
-        rename("Type" = type)
+      df<- filter_table(df, country = input$countryInput, type = input$typeInput, date1 = input$dateInput[1],date2 = input$dateInput[2])
+      # df %>%
+      #   filter(country == input$countryInput,
+      #          type %in% input$typeInput,
+      #          date >= input$dateInput[1],
+      #          date <= input$dateInput[2]) %>%
+      #   mutate(Date = as.Date(date)) %>%
+      #   rename("Amount" = cases) %>%
+      #   # mutate(Amount = comma(Amount, big.mark = ",", digits = 0)) %>%
+      #   rename("Type" = type)
     })
 
     # d <- plot_country(country=input$countryInput, type = input$typeInput, date1 = input$dateInput[1],
@@ -437,24 +393,24 @@ server <- function(input, output) {
 
     observeEvent(input$timeSlider, {
       data <- data_atDate(input$timeSlider)
-      replaceData(proxy_summaryDT_country, group_dataframe(data, "country"), rownames = FALSE)
+      replaceData(proxy_summaryDT_country, summariseData(data, "country"), rownames = FALSE)
     }, ignoreInit = TRUE, ignoreNULL = TRUE)
 
 
-    # summariseData <- function(df, groupBy) {
-    #   df %>%
-    #     group_by(!!sym(groupBy)) %>%
-    #     summarise(
-    #       "confirmed" = sum(confirmed, na.rm = T),
-    #       "recovered" = sum(recovered, na.rm = T),
-    #       "death" = sum(death, na.rm = T)
-    #     ) %>%
-    #     as.data.frame()
-    # }
+    summariseData <- function(df, groupBy) {
+      df %>%
+        group_by(!!sym(groupBy)) %>%
+        summarise(
+          "confirmed" = sum(confirmed, na.rm = T),
+          "recovered" = sum(recovered, na.rm = T),
+          "death" = sum(death, na.rm = T)
+        ) %>%
+        as.data.frame()
+    }
 
     getSummaryDT <- function(data, groupBy, selectable = FALSE) {
       datatable(
-        na.omit(group_dataframe(data, groupBy)),
+        na.omit(summariseData(data, groupBy)),
         rownames  = FALSE,
         options   = list(
           order          = list(1, "desc"),

@@ -19,7 +19,10 @@ Depends:
 Imports: 
     dplyr,
     rlang,
-    shinydashboard
+    shinydashboard,
+    lubridate,
+    magrittr,
+    tibble
 Suggests: 
     knitr,
     rmarkdown,
