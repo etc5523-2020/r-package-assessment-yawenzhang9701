@@ -6,7 +6,7 @@
 #' @param inputDisplay Display label for the control
 #' @param date The minimum and maximum date can be selected
 #'
-#' @return
+#'
 #' @examples
 #' \dontrun{
 #' slider_date("dateInput", "Date:", df$date)

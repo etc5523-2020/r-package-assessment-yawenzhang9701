@@ -21,7 +21,8 @@ filter_table(df, country_name, type_name, date1, date2)
 This function aim to filter different countries, type of cases, time period for the raw data.
 }
 \examples{
-df_Canada <- filter_table(df, "Canada", "confirmed", lubridate::ymd("2020-01-22"), lubridate::ymd("2020-01-31"))
+df_Canada <- filter_table(df, "Canada",
+"confirmed", lubridate::ymd("2020-01-22"), lubridate::ymd("2020-01-31"))
 tibble::view(df_Canada)
 
 }

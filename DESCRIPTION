@@ -15,13 +15,13 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
     R (>= 2.10),
-    shiny
+    shiny,
+    tidyverse
 Imports: 
     dplyr,
     rlang,
     shinydashboard,
     lubridate,
-    magrittr,
     tibble
 Suggests: 
     knitr,

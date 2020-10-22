@@ -8,10 +8,10 @@
 #' @param date1 The starting point of the time period.
 #' @param date2 The ending point of the time period.
 #'
-#' @importFrom magrittr %>%
 #'
 #' @examples
-#' df_Canada <- filter_table(df, "Canada", "confirmed", lubridate::ymd("2020-01-22"), lubridate::ymd("2020-01-31"))
+#' df_Canada <- filter_table(df, "Canada",
+#' "confirmed", lubridate::ymd("2020-01-22"), lubridate::ymd("2020-01-31"))
 #' tibble::view(df_Canada)
 #'
 #' @export
