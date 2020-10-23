@@ -95,53 +95,52 @@
 
     
     
-<div id="installation" class="section level2">
+<div id="introduction" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>The following steps will help you to load the shiny app:</p>
-<p>The development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"etc5523-2020/r-package-assessment-yawenzhang9701"</span><span class="op">)</span></pre></div>
-<p>After that, library <code>{COVIDworld}</code> in you working directory.</p>
+<a href="#introduction" class="anchor"></a>Introduction</h2>
+<p>The <code>{COVIDworld}</code> package provides datasets and functions to run Shiny dashboard which aim to help users to get a deeper understanding of the 2019 Novel Coronavirus COVID-19 (2019-nCoV) epidemic in the world.</p>
+<p>Library <code>{COVIDworld}</code> in you working directory.</p>
+<p>The package and part of the data will show as follow:</p>
+<pre><code>#&gt;         date province     country      lat     long      type cases
+#&gt; 1 2020-01-22          Afghanistan 33.93911 67.70995 confirmed     0
+#&gt; 2 2020-01-23          Afghanistan 33.93911 67.70995 confirmed     0
+#&gt; 3 2020-01-24          Afghanistan 33.93911 67.70995 confirmed     0
+#&gt; 4 2020-01-25          Afghanistan 33.93911 67.70995 confirmed     0
+#&gt; 5 2020-01-26          Afghanistan 33.93911 67.70995 confirmed     0
+#&gt; 6 2020-01-27          Afghanistan 33.93911 67.70995 confirmed     0</code></pre>
 </div>
-<div id="launching-shiny-dashboard" class="section level2">
+<div id="how-to-launch-my-shiny-dashboard" class="section level2">
 <h2 class="hasAnchor">
-<a href="#launching-shiny-dashboard" class="anchor"></a>Launching Shiny Dashboard</h2>
+<a href="#how-to-launch-my-shiny-dashboard" class="anchor"></a>How to launch my shiny dashboard?</h2>
 <p>The applicaiton can be launched by using the following line of code:</p>
+<pre><code><a href="../reference/launch_app.html">launch_app()</a></code></pre>
+<p>This app aims to track and visualize the spread by providing several interactive plots and tables, including the timeline function and the ability to overlay past outbreaks.</p>
 </div>
 <div id="data-sources" class="section level2">
 <h2 class="hasAnchor">
 <a href="#data-sources" class="anchor"></a>Data Sources</h2>
 <p>The raw input data are retrieved from a package called <code>{coronavirus}</code>. This package retrieved from the github repository called <a href="https://github.com/RamiKrispin/coronavirus">Rami Krispin</a>. The raw data is provided by <strong>Johns Hopkins University Center for Systems Science and Engineering</strong> (JHU CSSE) who share their data on a public github page <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University GitHub</a>.</p>
-<p>This <code>{COVIDworld}</code> package contains contains the following data sets which help to generate shiny app as well.</p>
-<ul>
-<li><p><strong>df</strong>: Daily summary of the Coronavirus (COVID-19) cases by state/province from 2020-01-22 to 2020-10-07.</p></li>
-<li><p><strong>df_daily</strong> : Daily new confirmed, recovered, death and active cases with their cumulative cases from 2020-01-22 to 2020-10-07.</p></li>
-<li><p><strong>df_tree</strong>: Cumulative Confirmed, Death, Recovered and Active Cases Dataset in Countries and Province/States.</p></li>
-<li><p><strong>df_recent</strong>: Daily summary of the Coronavirus (COVID-19) cases by state/province in 2020-10-07.</p></li>
-</ul>
 </div>
-<div id="about-covid-19-shiny-dashboard" class="section level2">
+<div id="how-to-use-this-shiny-dashboard" class="section level2">
 <h2 class="hasAnchor">
-<a href="#about-covid-19-shiny-dashboard" class="anchor"></a>About COVID-19 Shiny Dashboard</h2>
-<p>This shiny web application aims to help users to get a deeper understanding of this pandemic. The latest open data on the COVID-19 spread are regularly downloaded and displayed in a map, summary tables and plots. The dashboard is segmented into several sections that can be selected on the left side of the browser window. You can also find the R Shiny dashboard I created <a href="https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/">here</a></p>
-<div id="map-and-table" class="section level3">
-<h3 class="hasAnchor">
-<a href="#map-and-table" class="anchor"></a>Map and Table</h3>
-<p><img src="../man/figures/map.png" alt="COVID-19 Dashboard — Overview Map Section"> This map section of the dashboard shows the world map and a list of countries with their respective number of confirmed, recovered and death cases. A time-lapse feature with a simple slider is included to get an idea on about the development of the pandemic. Users could also choose the different types of data in the map by clicking the checkbox, which contains confirmed, recovered and deaths.</p>
-</div>
-<div id="graph" class="section level3">
-<h3 class="hasAnchor">
-<a href="#graph" class="anchor"></a>Graph</h3>
-<p><img src="../man/figures/graphs.png" alt="COVID-19 Dashboard — Overview Graph Section"> This graph section contains plots visualizing several interesting aspects of the COVID-19 pandemic progression.</p>
-<p>The left graphs shows different countries with different type of variables such as confirmed, deaths, recovered. The second graph on the right shows the global evolution of cases from 2020-01-22 to 2020-10-07.</p>
-</div>
-<div id="about" class="section level3">
-<h3 class="hasAnchor">
-<a href="#about" class="anchor"></a>About</h3>
-<p>The dashboard is rounded off with the “About” section, which briefly describes the motivation, data sources and additional information on the creator,</p>
-</div>
+<a href="#how-to-use-this-shiny-dashboard" class="anchor"></a>How to use this shiny dashboard?</h2>
+<p>This shiny web application aims to help users to get a deeper understanding of this pandemic. The latest open data on the COVID-19 spread are regularly downloaded and displayed in a map, summary tables and plots. The dashboard is segmented into several sections that can be selected on the left side of the browser window.</p>
+<ul>
+<li>
+<strong>Map</strong> - This map section shows the world map and a list of countries with their respective number of confirmed, recovered and death cases.</li>
+</ul>
+<p><img src="../man/figures/map.png" width="100%" height="80%" style="display: block; margin: auto auto auto 0;"></p>
+<ul>
+<li>
+<strong>Graphs</strong> - Two interesting aspects of the COVID-19 pandemic progression in two plots.</li>
+</ul>
+<p><img src="../man/figures/graphs.png" width="100%" height="80%" style="display: block; margin: auto auto auto 0;"></p>
+<ul>
+<li>
+<strong>About</strong> - A briefly describes the motivation, data sources and additional information on the creator.</li>
+</ul>
+<p><img src="../man/figures/about.png" width="100%" height="80%" style="display: block; margin: auto auto auto 0;"></p>
+<p>You can also find the R Shiny dashboard I created <a href="https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/">here</a></p>
 </div>
   </div>
 
