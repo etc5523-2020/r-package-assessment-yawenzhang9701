@@ -33,9 +33,9 @@ The package includes the following four datasets:
     in each country.
 
 More information about the shiny dashboard available
-[here](https://etc5523-yawen-zhang-blog.netlify.app/post/shiny-app-introduction/)
+[HERE](https://etc5523-yawen-zhang-blog.netlify.app/post/shiny-app-introduction/)
 and supporting dashboard available
-[here](https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/)
+[HERE](https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/)
 
 Data Source: [Johns Hopkins University
 GitHub](https://github.com/CSSEGISandData/COVID-19)
@@ -71,7 +71,7 @@ Besides, there are three other functions inside the package, which are:
 
   - `silder_date` - Constructs a slider widget to select the minimum
     date and maximum date from a range.
-  - `add_menu` - Add menu bar for the shiny dashboard.
+  - `add_menu` - Add menu bar in the shiny dashboard.
   - `df_daily` - Filter different countries, type of cases, time period
     from the raw data
 

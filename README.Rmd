@@ -32,7 +32,7 @@ The package includes the following four datasets:
 - `df_daily` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Daily and Cumulative Cases around the world.
 - `df_tree` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset in each country.
 
-More information about the shiny dashboard available [here](https://etc5523-yawen-zhang-blog.netlify.app/post/shiny-app-introduction/) and supporting dashboard available [here](https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/)
+More information about the shiny dashboard available [HERE](https://etc5523-yawen-zhang-blog.netlify.app/post/shiny-app-introduction/) and supporting dashboard available [HERE](https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/)
   
 Data Source: [Johns Hopkins University GitHub](https://github.com/CSSEGISandData/COVID-19)
   
@@ -62,7 +62,7 @@ The screenshot plots visualizing several interesting aspects of the COVID-19 pan
 Besides, there are three other functions inside the package, which are: 
 
 - `silder_date` - Constructs a slider widget to select the minimum date and maximum date from a range.
-- `add_menu` - Add menu bar for the shiny dashboard.
+- `add_menu` - Add menu bar in the shiny dashboard.
 - `df_daily` - Filter different countries, type of cases, time period from the raw data
 
 
