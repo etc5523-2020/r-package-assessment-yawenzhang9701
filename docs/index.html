@@ -81,50 +81,61 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="covidworld" class="section level1">
+<div id="-covidworld" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#covidworld" class="anchor"></a>COVIDworld</h1></div>
+<a href="#-covidworld" class="anchor"></a>📦 COVIDworld</h1></div>
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The goal of <code>{COVIDworld}</code> R package is to provides data sets of the 2019 Novel Coronavirus COVID-19 (2019-nCoV) epidemic. The package includes the following three datasets:</p>
+<div id="overview-" class="section level2">
+<h2 class="hasAnchor">
+<a href="#overview-" class="anchor"></a>Overview 📖</h2>
+<p>The goal of <code>{COVIDworld}</code> R package is to provide datasets and functions to run Shiny dashboard which aim to help users to get a deeper understanding of the 2019 Novel Coronavirus COVID-19 (2019-nCoV) epidemic in the worldwide.</p>
+<p>The package includes the following four datasets:</p>
 <ul>
 <li>
 <code>df</code> - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset in Countries and Province/States.</li>
 <li>
-<code>df_recent</code> - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) in 2020-10-07.</li>
+<code>df_recent</code> - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) in 2020-10-07 (last day in the data set).</li>
 <li>
-<code>df_daily</code> - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Daily and Cumulative Cases.</li>
+<code>df_daily</code> - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Daily and Cumulative Cases around the world.</li>
 <li>
-<code>df_tree</code> - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset for each country.</li>
+<code>df_tree</code> - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset in each country.</li>
 </ul>
-<p>More information about the origin data sets available <a href="https://coronavirus.jhu.edu/map.html">here</a> and supporting dashboard available <a href="https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/">here</a></p>
-<div id="get-started" class="section level2">
+<p>More information about the shiny dashboard available <a href="https://etc5523-yawen-zhang-blog.netlify.app/post/shiny-app-introduction/">here</a> and supporting dashboard available <a href="https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/">here</a></p>
+<p>Data Source: <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University GitHub</a></p>
+<p><a href="https://etc5523-2020.github.io/r-package-assessment-yawenzhang9701/"><img src="reference/figures/map.png" width="100%"></a></p>
+</div>
+<div id="get-started-" class="section level2">
 <h2 class="hasAnchor">
-<a href="#get-started" class="anchor"></a>Get Started</h2>
-<p>You can install the released version of COVIDworld from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<a href="#get-started-" class="anchor"></a>Get Started 🙌</h2>
+<p>The development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"COVIDworld"</span><span class="op">)</span></pre></div>
-<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"etc5523-2020/r-package-assessment-yawenzhang9701"</span><span class="op">)</span></pre></div>
 </div>
-<div id="functions-in-covidworld" class="section level2">
+<div id="how-to-launch-the-shiny-dashboard-" class="section level2">
 <h2 class="hasAnchor">
-<a href="#functions-in-covidworld" class="anchor"></a>Functions in COVIDworld</h2>
-<p>In order to make the dashboard easier, I created a function called <code><a href="reference/launch_app.html">launch_app()</a></code> to run the shiny dashboard. The aim of this app is to track and visualize the spread by providing several interactive plots and tables, including the timeline function and the ability to overlay past outbreaks.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(COVIDworld)</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">launch_app</span>()</span></code></pre></div>
-<p>To simplify the process of making dashboard menu, users could use <code><a href="reference/add_menu.html">add_menu()</a></code> to add customized icon.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="fu"><a href="reference/add_menu.html">add_menu</a></span><span class="op">(</span><span class="op">)</span></pre></div>
+<a href="#how-to-launch-the-shiny-dashboard-" class="anchor"></a>How to launch the Shiny Dashboard? 🗺</h2>
+<p>In order to make the dashboard easier, I created a function called <code><a href="reference/launch_app.html">launch_app()</a></code> to run the shiny dashboard. This app aims to track and visualize the spread by providing several interactive plots and tables, including the timeline function and the ability to overlay past outbreaks.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(COVIDworld)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">launch_app</span>()</span></code></pre></div>
+<p>The screenshot plots visualizing several interesting aspects of the COVID-19 pandemic progression. <a href="https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/"><img src="reference/figures/graphs.png" width="100%"></a></p>
+<p>Besides, there are three other functions inside the package, which are:</p>
+<ul>
+<li>
+<code>silder_date</code> - Constructs a slider widget to select the minimum date and maximum date from a range.</li>
+<li>
+<code>add_menu</code> - Add menu bar for the shiny dashboard.</li>
+<li>
+<code>df_daily</code> - Filter different countries, type of cases, time period from the raw data</li>
+</ul>
 </div>
-<div id="usage" class="section level2">
+<div id="usage-" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
-<div class="sourceCode" id="cb5"><pre class="downlit">
+<a href="#usage-" class="anchor"></a>Usage 📖</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
@@ -138,16 +149,17 @@
 <div id="plotting-the-confirmed-cases" class="section level3">
 <h3 class="hasAnchor">
 <a href="#plotting-the-confirmed-cases" class="anchor"></a>Plotting the confirmed cases</h3>
-<div class="sourceCode" id="cb6"><pre class="downlit">
+<div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="va">df</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"confirmed"</span>, <span class="va">country</span> <span class="op">==</span> <span class="st">"Canada"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"confirmed"</span>, <span class="va">country</span> <span class="op">==</span> <span class="st">"China"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">cases</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example plot to df data set (Canada Confirmed Cases as Example)"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Number of Cases"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Date"</span><span class="op">)</span></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#E41317"</span>, fill <span class="op">=</span> <span class="st">"#E41317"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Canada Daily New Confirmed Cases"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Confirmed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Number of Cases"</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major<span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_line</a></span><span class="op">(</span>colour<span class="op">=</span><span class="cn">NA</span><span class="op">)</span><span class="op">)</span></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 </div>
 </div>

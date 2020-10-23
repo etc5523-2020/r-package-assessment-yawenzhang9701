@@ -93,8 +93,7 @@ head(df)
 ### Plotting the confirmed cases
 
 ``` r
-library(dplyr)
-library(ggplot2)
+library(tidyverse)
 df %>%
   filter(type == "confirmed", country == "China") %>%
   ggplot(aes(x = date, y = cases)) +
@@ -106,3 +105,18 @@ df %>%
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+``` r
+data(df_daily)
+head(df_daily)
+#> # A tibble: 6 x 9
+#>   date       confirmed death recovered active confirmed_cum death_cum
+#>   <date>         <int> <int>     <int>  <int>         <int>     <int>
+#> 1 2020-01-22       555    17        28    510           555        17
+#> 2 2020-01-23        99     1         2     96           654        18
+#> 3 2020-01-24       287     8         6    273           941        26
+#> 4 2020-01-25       493    16         3    474          1434        42
+#> 5 2020-01-26       684    14        13    657          2118        56
+#> 6 2020-01-27       809    26         9    774          2927        82
+#> # … with 2 more variables: recovered_cum <int>, active_cum <int>
+```

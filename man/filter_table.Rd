@@ -18,7 +18,7 @@ filter_table(df, country_name, type_name, date1, date2)
 \item{date2}{The ending point of the time period.}
 }
 \description{
-This function aim to filter different countries, type of cases, time period for the raw data.
+This function aim to filter different countries, type of cases, time period from the raw data.
 }
 \examples{
 df_Canada <- filter_table(df, "Canada",

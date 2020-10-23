@@ -76,8 +76,7 @@ head(df)
 
 ### Plotting the confirmed cases 
 ```{r message=FALSE}
-library(dplyr)
-library(ggplot2)
+library(tidyverse)
 df %>%
   filter(type == "confirmed", country == "China") %>%
   ggplot(aes(x = date, y = cases)) +
@@ -86,5 +85,10 @@ df %>%
   xlab("Confirmed") +
   ylab("Number of Cases")+
   theme(panel.grid.major=element_line(colour=NA))
+```
+
+```{r}
+data(df_daily)
+head(df_daily)
 ```
 

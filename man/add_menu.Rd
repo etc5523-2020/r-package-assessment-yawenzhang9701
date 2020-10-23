@@ -18,7 +18,7 @@ add_menu(id, text_name, icon_name)
 \item{icon_name}{The available icons}
 }
 \description{
-Add menu for shiny dashboard
+Add menu bar for shiny dashboard
 }
 \examples{
 add_menu("Map", "Map", "map-marked-alt")

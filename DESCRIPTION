@@ -23,7 +23,12 @@ Imports:
     rlang,
     shinydashboard,
     lubridate,
-    tibble
+    tibble,
+    plotly,
+    ggplot2, 
+    kableExtra,
+    leaflet, 
+    DT
 Suggests: 
     knitr,
     rmarkdown,
