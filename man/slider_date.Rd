@@ -13,15 +13,10 @@ slider_date(inputid, inputDisplay, date)
 
 \item{date}{The minimum and maximum date can be selected}
 }
-\value{
-
-}
 \description{
 This function constructs a slider widget to select the minimum date and maximum date from a range.
 }
 \examples{
-\dontrun{
 slider_date("dateInput", "Date:", df$date)
-}
 
 }

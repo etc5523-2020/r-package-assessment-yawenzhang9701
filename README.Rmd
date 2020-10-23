@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# COVIDworld
+# `r emo::ji("package")` COVIDworld
 
 <!-- badges: start -->
 [![R build status](https://github.com/etc5523-2020/r-package-assessment-yawenzhang9701/workflows/R-CMD-check/badge.svg)](https://github.com/etc5523-2020/r-package-assessment-yawenzhang9701/actions)
@@ -22,46 +22,51 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of `{COVIDworld}` R package is to provides data sets of the 2019 Novel Coronavirus COVID-19 (2019-nCoV) epidemic. The package includes the following three datasets:
+## Overview `r emo::ji("open_book")`
+The goal of `{COVIDworld}` R package is to provide datasets and functions to run Shiny dashboard which aim to help users to get a deeper understanding of the 2019 Novel Coronavirus COVID-19 (2019-nCoV) epidemic in the worldwide. 
+  
+The package includes the following four datasets:
 
 - `df` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset in Countries and Province/States.
-- `df_recent` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) in 2020-10-07.
-- `df_daily` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Daily and Cumulative Cases.
-- `df_tree` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset for each country.
+- `df_recent` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) in 2020-10-07 (last day in the data set).
+- `df_daily` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Daily and Cumulative Cases around the world.
+- `df_tree` - The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset in each country.
 
-More information about the origin data sets available [here](https://coronavirus.jhu.edu/map.html) and supporting dashboard available [here](https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/)
+More information about the shiny dashboard available [here](https://etc5523-yawen-zhang-blog.netlify.app/post/shiny-app-introduction/) and supporting dashboard available [here](https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/)
+  
+Data Source: [Johns Hopkins University GitHub](https://github.com/CSSEGISandData/COVID-19)
+  
+[<img src="man/figures/map.png" width="100%" />](https://etc5523-2020.github.io/r-package-assessment-yawenzhang9701/)
 
-## Get Started
+## Get Started `r emo::ji("raised_hands")`
 
-You can install the released version of COVIDworld from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("COVIDworld")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+The development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("etc5523-2020/r-package-assessment-yawenzhang9701")
 ```
 
-## Functions in COVIDworld
+## How to launch the Shiny Dashboard? `r emo::ji("world_map")`
 
-In order to make the dashboard easier, I created a function called `launch_app()` to run the shiny dashboard. The aim of this app is to track and visualize the spread by providing several interactive plots and tables, including the timeline function and the ability to overlay past outbreaks. 
+In order to make the dashboard easier, I created a function called `launch_app()` to run the shiny dashboard.  This app aims to track and visualize the spread by providing several interactive plots and tables, including the timeline function and the ability to overlay past outbreaks. 
 
 ```
 library(COVIDworld)
 
 launch_app()
 ```
-To simplify the process of making dashboard menu, users could use `add_menu()` to add customized icon.  
+The screenshot plots visualizing several interesting aspects of the COVID-19 pandemic progression.
+[<img src="man/figures/graphs.png" width="100%" />](https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/)
 
-``` r
-add_menu()
-```
+Besides, there are three other functions inside the package, which are: 
 
-## Usage
+- `silder_date` - Constructs a slider widget to select the minimum date and maximum date from a range.
+- `add_menu` - Add menu bar for the shiny dashboard.
+- `df_daily` - Filter different countries, type of cases, time period from the raw data
+
+
+## Usage `r emo::ji("open_book")`
 
 ``` {r}
 data(df)
@@ -69,16 +74,17 @@ data(df)
 head(df)
 ```
 
-### Plotting the confirmed cases
+### Plotting the confirmed cases 
 ```{r message=FALSE}
 library(dplyr)
 library(ggplot2)
 df %>%
-  filter(type == "confirmed", country == "Canada") %>%
+  filter(type == "confirmed", country == "China") %>%
   ggplot(aes(x = date, y = cases)) +
-  geom_col() +
-  ggtitle("Example plot to df data set (Canada Confirmed Cases as Example)") +
-  xlab("Number of Cases") +
-  ylab("Date")
+  geom_col(color = "#E41317", fill = "#E41317") +
+  ggtitle("Canada Daily New Confirmed Cases") +
+  xlab("Confirmed") +
+  ylab("Number of Cases")+
+  theme(panel.grid.major=element_line(colour=NA))
 ```
 

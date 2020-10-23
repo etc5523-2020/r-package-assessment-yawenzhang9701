@@ -8,9 +8,7 @@
 #'
 #'
 #' @examples
-#' \dontrun{
 #' slider_date("dateInput", "Date:", df$date)
-#' }
 #'
 #' @export
 slider_date <- function(inputid, inputDisplay, date){

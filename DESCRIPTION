@@ -19,6 +19,7 @@ Depends:
     tidyverse
 Imports: 
     dplyr,
+    magrittr,
     rlang,
     shinydashboard,
     lubridate,

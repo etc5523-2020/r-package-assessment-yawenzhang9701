@@ -1,6 +1,6 @@
 #' Filter df table
 #'
-#' @description This function aim to filter different countries, type of cases, time period for the raw data.
+#' @description This function aim to filter different countries, type of cases, time period from the raw data.
 #'
 #' @param df Enter your origin data set.
 #' @param country_name Countries you want to selected.

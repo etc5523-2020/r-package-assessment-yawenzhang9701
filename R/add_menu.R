@@ -1,6 +1,6 @@
 #' Dashboard Menu
 #'
-#' @description Add menu for shiny dashboard
+#' @description Add menu bar for shiny dashboard
 #'
 #' @param id Sidebar menu which be used for a Shiny input value
 #' @param text_name The name of a tab that this menu item will activate

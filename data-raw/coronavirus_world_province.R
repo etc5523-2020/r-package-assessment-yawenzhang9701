@@ -18,7 +18,7 @@ df <- read.csv("data-raw/coronavirus_new.csv", stringsAsFactors = FALSE) %>%
          country = trimws(country),
          country = factor(country, levels = unique(country))) %>%
   mutate(date = as.Date(date))
-
+usethis::use_data(df, overwrite = TRUE)
 
 
 df_daily <- df %>%
@@ -35,7 +35,7 @@ df_daily <- df %>%
          death_cum = cumsum(death),
          recovered_cum = cumsum(recovered),
          active_cum = cumsum(active))
-
+usethis::use_data(df_daily, overwrite = TRUE)
 
 df_tree <- df %>%
   group_by(country, type) %>%
@@ -47,11 +47,11 @@ df_tree <- df %>%
   mutate(Active = Confirmed - Death - Recovered) %>%
   pivot_longer(cols = -country, names_to = "type", values_to = "total")
 
-
+usethis::use_data(df_tree, overwrite = TRUE)
 
 df_recent <- df %>%
   filter(date == "2020-10-07") %>%
   pivot_wider(id_cols = c("date", "country", "lat", "long", "province"), names_from = type, values_from = cases)
 
 
-usethis::use_data(recent, overwrite = TRUE)
+usethis::use_data(df_recent, overwrite = TRUE)
