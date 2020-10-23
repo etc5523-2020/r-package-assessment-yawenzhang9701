@@ -68,27 +68,46 @@ Besides, there are three other functions inside the package, which are:
 
 ## Usage `r emo::ji("open_book")`
 
+### Plotting the confirmed cases 
 ``` {r}
 data(df)
 
 head(df)
 ```
 
-### Plotting the confirmed cases 
 ```{r message=FALSE}
 library(tidyverse)
 df %>%
   filter(type == "confirmed", country == "China") %>%
   ggplot(aes(x = date, y = cases)) +
   geom_col(color = "#E41317", fill = "#E41317") +
-  ggtitle("Canada Daily New Confirmed Cases") +
+  ggtitle("China Daily Confirmed Cases") +
   xlab("Confirmed") +
   ylab("Number of Cases")+
+  theme(panel.background = element_rect(fill = 'white', colour = 'black'))+
   theme(panel.grid.major=element_line(colour=NA))
 ```
 
+### Plotting different type of cases in the world
 ```{r}
 data(df_daily)
 head(df_daily)
+```
+
+```{r}
+df_daily %>%
+  select(date, confirmed_cum, death_cum, recovered_cum, active_cum) %>%
+  rename("Confirmed" = confirmed_cum,
+         "Recovered" = recovered_cum,
+         "Death"  = death_cum,
+         "Active" = active_cum) %>%
+  pivot_longer(cols = -date, names_to = "type", values_to = "total") %>%
+  ggplot(aes(x = date, y = total, color = type)) +
+  geom_line() +
+  ggtitle("Active, Confirmed, Death and Recovered Cases in the world") +
+  xlab("Date") +
+  ylab("Number") +
+  theme(panel.background = element_rect(fill = 'white', colour = 'black'))+
+  theme(panel.grid.major=element_line(colour=NA))
 ```
 

@@ -77,6 +77,8 @@ Besides, there are three other functions inside the package, which are:
 
 ## Usage 📖
 
+### Plotting the confirmed cases
+
 ``` r
 data(df)
 
@@ -90,21 +92,22 @@ head(df)
 #> 6 2020-01-27          Afghanistan 33.93911 67.70995 confirmed     0
 ```
 
-### Plotting the confirmed cases
-
 ``` r
 library(tidyverse)
 df %>%
   filter(type == "confirmed", country == "China") %>%
   ggplot(aes(x = date, y = cases)) +
   geom_col(color = "#E41317", fill = "#E41317") +
-  ggtitle("Canada Daily New Confirmed Cases") +
+  ggtitle("China Daily Confirmed Cases") +
   xlab("Confirmed") +
   ylab("Number of Cases")+
+  theme(panel.background = element_rect(fill = 'white', colour = 'black'))+
   theme(panel.grid.major=element_line(colour=NA))
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+### Plotting different type of cases in the world
 
 ``` r
 data(df_daily)
@@ -120,3 +123,22 @@ head(df_daily)
 #> 6 2020-01-27       809    26         9    774          2927        82
 #> # … with 2 more variables: recovered_cum <int>, active_cum <int>
 ```
+
+``` r
+df_daily %>%
+  select(date, confirmed_cum, death_cum, recovered_cum, active_cum) %>%
+  rename("Confirmed" = confirmed_cum,
+         "Recovered" = recovered_cum,
+         "Death"  = death_cum,
+         "Active" = active_cum) %>%
+  pivot_longer(cols = -date, names_to = "type", values_to = "total") %>%
+  ggplot(aes(x = date, y = total, color = type)) +
+  geom_line() +
+  ggtitle("Active, Confirmed, Death and Recovered Cases in the world") +
+  xlab("Date") +
+  ylab("Number") +
+  theme(panel.background = element_rect(fill = 'white', colour = 'black'))+
+  theme(panel.grid.major=element_line(colour=NA))
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
