@@ -17,7 +17,7 @@ country or, if available, province.}
 country or, if available, province.}
 \item{type}{An indicator for the type of cases (confirmed, death,
 recovered).}
-\item{cases}{Number of cases on given date.}
+\item{cases}{Number of cases on a given date.}
 }
 }
 \source{

@@ -3,7 +3,7 @@
 #' @description This function aim to filter different countries, type of cases, time period from the raw data.
 #'
 #' @param df Enter your origin data set.
-#' @param country_name Countries you want to selected.
+#' @param country_name Countries you want to select.
 #' @param type_name Select different type cases in the dataframe, which includes confirmed, recovered and deaths.
 #' @param date1 The starting point of the time period.
 #' @param date2 The ending point of the time period.

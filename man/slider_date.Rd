@@ -20,3 +20,6 @@ This function constructs a slider widget to select the minimum date and maximum 
 slider_date("dateInput", "Date:", df$date)
 
 }
+\seealso{
+\code{\link[=sliderInput]{sliderInput()}}
+}

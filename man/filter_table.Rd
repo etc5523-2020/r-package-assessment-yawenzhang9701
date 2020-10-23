@@ -9,7 +9,7 @@ filter_table(df, country_name, type_name, date1, date2)
 \arguments{
 \item{df}{Enter your origin data set.}
 
-\item{country_name}{Countries you want to selected.}
+\item{country_name}{Countries you want to select.}
 
 \item{type_name}{Select different type cases in the dataframe, which includes confirmed, recovered and deaths.}
 
