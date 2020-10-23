@@ -42,6 +42,7 @@ data(df)
 head(df)
 ```
 
+
 ## How to Launch My Shiny Dashboard? 
 
 The application can be launched by using the following line of code:
@@ -60,26 +61,35 @@ The raw input data are retrieved from a package called `{coronavirus}`. This pac
 ## How to Use this Shiny Dashboard?
   
 This shiny web application aims to help users to get a deeper understanding of this pandemic. The latest open data on the COVID-19 spread are regularly downloaded and displayed in a map, summary tables and plots. The dashboard is segmented into several sections that can be selected on the left side of the browser window. 
+
+```{r, menu-image, echo=FALSE, out.width='30%', fig.align='center'}
+# adding the figure from COVID-19 Dashboard
+knitr::include_graphics("../man/figures/menu.png")
+```
   
 You can also find the R Shiny dashboard I created [here](https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/). 
 
-- **Map** - This map section shows the world map and a list of countries with their respective number of confirmed, recovered and death cases.
+### **Map and Table** 
+This map section shows the world map and a list of countries with their respective number of confirmed, recovered and death cases. A time-lapse feature with a simple slider is included to get an idea on about the development of the pandemic. Within the leaflet map, users could also choose the different types of data in the map by clicking the checkbox, which contains confirmed, recovered and deaths.
 
-```{r, image, echo=FALSE, out.width='100%', fig.align='left'}
+```{r, image, echo=FALSE, out.width='80%', fig.align='center'}
 # adding the figure from COVID-19 Dashboard
 knitr::include_graphics("../man/figures/map.png")
 ```
 
-- **Graphs** - Two interesting aspects of the COVID-19 pandemic progression show in two plots.
 
-```{r, external-image, echo=FALSE, out.width='100%', fig.align='left'}
+### **Graphs** 
+This section contains interesting aspects of the COVID-19 pandemic progression show in two plots. In the left graph, users have the ability to manually select the countries and different type of variables such as confirmed, deaths, recovered she or he interested in. The second graph on the right shows the global evolution of cases from 2020-01-22 to 2020-10-07. This plot has a checkbox with which the y-axis can be switched to a logarithmic scale.
+
+```{r, external-image, echo=FALSE, out.width='80%', fig.align='center'}
 # adding the figure from COVID-19 Dashboard
 knitr::include_graphics("../man/figures/graphs.png")
 ```
 
-- **About** - Briefly describes the motivation, data sources, and additional information on the creator.
+### **About** 
+This section briefly describes the motivation, data sources, and additional information on the creator. 
 
-```{r, about-image, echo=FALSE, out.width='100%', fig.align='left'}
+```{r, about-image, echo=FALSE, out.width='80%', fig.align='center'}
 # adding the figure from COVID-19 Dashboard
 knitr::include_graphics("../man/figures/about.png")
 ```

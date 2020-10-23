@@ -99,19 +99,25 @@
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
 <p>The <code>{COVIDworld}</code> package provides datasets and functions to run Shiny dashboard which aim to help users to get a deeper understanding of the 2019 Novel Coronavirus COVID-19 (2019-nCoV) epidemic in the world.</p>
-<p>Library <code>{COVIDworld}</code> in your working directory.</p>
+<p>You can library pacakge <code>{COVIDworld}</code> in your working directory.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">COVIDworld</span><span class="op">)</span></pre></div>
 <p>The package and part of the data will show as follow:</p>
-<pre><code>#&gt;         date province     country      lat     long      type cases
-#&gt; 1 2020-01-22          Afghanistan 33.93911 67.70995 confirmed     0
-#&gt; 2 2020-01-23          Afghanistan 33.93911 67.70995 confirmed     0
-#&gt; 3 2020-01-24          Afghanistan 33.93911 67.70995 confirmed     0
-#&gt; 4 2020-01-25          Afghanistan 33.93911 67.70995 confirmed     0
-#&gt; 5 2020-01-26          Afghanistan 33.93911 67.70995 confirmed     0
-#&gt; 6 2020-01-27          Afghanistan 33.93911 67.70995 confirmed     0</code></pre>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="co">#&gt;         date province     country      lat     long      type cases</span>
+<span class="co">#&gt; 1 2020-01-22          Afghanistan 33.93911 67.70995 confirmed     0</span>
+<span class="co">#&gt; 2 2020-01-23          Afghanistan 33.93911 67.70995 confirmed     0</span>
+<span class="co">#&gt; 3 2020-01-24          Afghanistan 33.93911 67.70995 confirmed     0</span>
+<span class="co">#&gt; 4 2020-01-25          Afghanistan 33.93911 67.70995 confirmed     0</span>
+<span class="co">#&gt; 5 2020-01-26          Afghanistan 33.93911 67.70995 confirmed     0</span>
+<span class="co">#&gt; 6 2020-01-27          Afghanistan 33.93911 67.70995 confirmed     0</span></pre></div>
 </div>
 <div id="how-to-launch-my-shiny-dashboard" class="section level2">
 <h2 class="hasAnchor">
-<a href="#how-to-launch-my-shiny-dashboard" class="anchor"></a>How to launch my shiny dashboard?</h2>
+<a href="#how-to-launch-my-shiny-dashboard" class="anchor"></a>How to Launch My Shiny Dashboard?</h2>
 <p>The application can be launched by using the following line of code:</p>
 <pre><code><a href="../reference/launch_app.html">launch_app()</a></code></pre>
 <p>This app aims to track and visualize the spread by providing several interactive plots and tables, including the timeline function and the ability to overlay past outbreaks.</p>
@@ -123,28 +129,35 @@
 </div>
 <div id="how-to-use-this-shiny-dashboard" class="section level2">
 <h2 class="hasAnchor">
-<a href="#how-to-use-this-shiny-dashboard" class="anchor"></a>How to use this shiny dashboard?</h2>
+<a href="#how-to-use-this-shiny-dashboard" class="anchor"></a>How to Use this Shiny Dashboard?</h2>
 <p>This shiny web application aims to help users to get a deeper understanding of this pandemic. The latest open data on the COVID-19 spread are regularly downloaded and displayed in a map, summary tables and plots. The dashboard is segmented into several sections that can be selected on the left side of the browser window.</p>
-<ul>
-<li>
-<strong>Map</strong> - This map section shows the world map and a list of countries with their respective number of confirmed, recovered and death cases.</li>
-</ul>
-<p><img src="../man/figures/map.png" width="100%" height="80%" style="display: block; margin: auto auto auto 0;"></p>
-<ul>
-<li>
-<strong>Graphs</strong> - Two interesting aspects of the COVID-19 pandemic progression show in two plots.</li>
-</ul>
-<p><img src="../man/figures/graphs.png" width="100%" height="80%" style="display: block; margin: auto auto auto 0;"></p>
-<ul>
-<li>
-<strong>About</strong> - A briefly describes the motivation, data sources and additional information on the creator.</li>
-</ul>
-<p><img src="../man/figures/about.png" width="100%" height="80%" style="display: block; margin: auto auto auto 0;"></p>
-<p>You can also find the R Shiny dashboard I created <a href="https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/">here</a></p>
+<p><img src="../man/figures/menu.png" width="30%" height="80%" style="display: block; margin: auto;"></p>
+<p>You can also find the R Shiny dashboard I created <a href="https://yawen.shinyapps.io/shiny-assessment-yawenzhang9701/">here</a>.</p>
+<div id="map-and-table" class="section level3">
+<h3 class="hasAnchor">
+<a href="#map-and-table" class="anchor"></a><strong>Map and Table</strong>
+</h3>
+<p>This map section shows the world map and a list of countries with their respective number of confirmed, recovered and death cases. A time-lapse feature with a simple slider is included to get an idea on about the development of the pandemic. Within the leaflet map, users could also choose the different types of data in the map by clicking the checkbox, which contains confirmed, recovered and deaths.</p>
+<p><img src="../man/figures/map.png" width="80%" height="80%" style="display: block; margin: auto;"></p>
+</div>
+<div id="graphs" class="section level3">
+<h3 class="hasAnchor">
+<a href="#graphs" class="anchor"></a><strong>Graphs</strong>
+</h3>
+<p>This section contains interesting aspects of the COVID-19 pandemic progression show in two plots. In the left graph, users have the ability to manually select the countries and different type of variables such as confirmed, deaths, recovered she or he interested in. The second graph on the right shows the global evolution of cases from 2020-01-22 to 2020-10-07. This plot has a checkbox with which the y-axis can be switched to a logarithmic scale.</p>
+<p><img src="../man/figures/graphs.png" width="80%" height="80%" style="display: block; margin: auto;"></p>
+</div>
+<div id="about" class="section level3">
+<h3 class="hasAnchor">
+<a href="#about" class="anchor"></a><strong>About</strong>
+</h3>
+<p>This section briefly describes the motivation, data sources, and additional information on the creator.</p>
+<p><img src="../man/figures/about.png" width="80%" height="80%" style="display: block; margin: auto;"></p>
+</div>
 </div>
 <div id="getting-help" class="section level2">
 <h2 class="hasAnchor">
-<a href="#getting-help" class="anchor"></a>Getting help</h2>
+<a href="#getting-help" class="anchor"></a>Getting Help</h2>
 <p>If you find any bug/issue or have an idea on how to improve the dashboard, please create an issue on <a href="https://github.com/etc5523-2020/shiny-assessment-yawenzhang9701">GitHub</a>. I will try to look into it as soon as possible. From my dashboard, if it could help you to improve your skills and learn new things, it would be my pleasure.</p>
 </div>
   </div>
